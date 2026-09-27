@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bakery Blair</title>
+    <style>
+        body {
+            background-color: #f5e6e8;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background-color: #e5b9bc;
+            padding: 15px;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #5c4033;
+            font-weight: bold;
+        }
+        section {
+            padding: 30px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            width: 85%;
+            max-width: 750px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .home-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            text-align: left;
+        }
+        .home-text {
+            flex: 1;
+        }
+        .product-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #faf0f2;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            text-align: left;
+        }
+        .product-info {
+            flex: 1;
+            padding: 0 20px;
+        }
+        .product-info h3 {
+            margin-top: 0;
+            color: #5c4033;
+        }
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #d88c9a;
+            background: #fff;
+            padding: 15px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .step-block {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin-bottom: 30px;
+            text-align: left;
+            background: #faf0f2;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .step-block ul {
+            margin: 5px 0 0 20px;
+            padding: 0;
+        }
+        button {
+            background-color: #d88c9a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #c57684;
+        }
+        footer {
+            background-color: #e5b9bc;
+            padding: 15px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Верхнє меню -->
+    <header>
+        <h2>BAKERY BLAIR</h2>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#discover">Discover</a>
+            <a href="#box">Create Box</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Головна сторінка з новим текстом -->
+    <section id="home">
+        <h1>New York Rolls</h1>
+        <div class="home-content">
+            <div class="home-text">
+                <p>Indulge in the New York Roll, the trendy pastry that has foodies around the world swooning! Straight from New York bakeries, this unique creation blends the crispiness of a croissant with a generous, melting center—all in a round, ultra-indulgent format.</p>
+            </div>
+            <img src="7c415c61-64c7-46a8-bc48-3c3bfce2985f.jpg" alt="Bakery Display" style="width: 220px; height: auto;"[cite: 15]>
+        </div>
+    </section>
+
+    <!-- Розділ смаків -->
+    <section id="discover">
+        <h2>Our Flavours</h2>
+
+        <!-- Yellow Cheese -->
+        <div class="product-item">
+            <img src="aa8ec759-db70-4f8d-b5c4-2cbbed3b908b.jpg" alt="Yellow Cheese Cream Filled"[cite: 20]>
+            <div class="product-info">
+                <h3>Yellow Cheese Crem Filled</h3>
+                <p>A journey balancing delicate sweetness and bold flavor! Succumb to this New York Roll featuring crisp, golden pastry generously filled with a creamy yellow cheese filling. Combining the richness of slightly salty cream cheese with a smooth, melting center, every bite is an explosion of flavor. Topped with a subtle glaze and a hint of savory garnish, this roll reimagines a New York classic with an original, comforting twist.</p>
+                <br>
+                <button>Add to cart</button>
+            </div>
+            <div class="price">4.50€</div>
+        </div>
+
+        <!-- Tiramisu -->
+        <div class="product-item">
+            <img src="5794ade5-6e26-4a5f-9269-1ab10de974f1.jpg" alt="Tiramisu Cream Filled"[cite: 18]>
+            <div class="product-info">
+                <h3>Tiramisu Cream Filled</h3>
+                <p>Italian elegance meets New York flair. Discover this deliciously flaky New York Roll, filled with a creamy tiramisu filling. With intense coffee notes, smooth mascarpone, and a touch of cocoa, every bite evokes the famous Italian dessert—reimagined as chic street food. A perfect balance of crisp pastry and a melting center for a moment of pure indulgence.</p>
+                <br>
+                <button>Add to cart</button>
+            </div>
+            <div class="price">5.00€</div>
+        </div>
+
+        <!-- Sweet Corn -->
+        <div class="product-item">
+            <img src="85fc03af-7cc6-4b5b-998e-485e3d695f2f.jpg" alt="Sweet Corn"[cite: 17]>
+            <div class="product-info">
+                <h3>Sweet Corn</h3>
+                <p>A sweet surprise straight from the fields! This golden-pastry New York Roll conceals a smooth, velvety sweet corn cream—a unique flavor that subtly blends indulgence with lightness. The natural sweetness of the corn harmonizes perfectly with the crisp pastry, creating a taste experience that is unexpected yet incredibly addictive.</p>
+                <br>
+                <button>Add to cart</button>
+            </div>
+            <div class="price">4.80€</div>
+        </div>
+    </section>
+
+    <!-- Створення боксу -->
+    <section id="box">
+        <h2>Create your Box</h2>
+
+        <div class="step-block">
+            <div>
+                <h3>1. Choose your Box</h3>
+                <ul>
+                    <li>Cardboard box</li>
+                    <li>Metal box</li>
+                    <li>Duo box</li>
+                </ul>
+            </div>
+            <img src="e7804679-40c4-4277-b8c3-f092df86e21d.jpg" alt="Box" style="width: 180px; height: auto;"[cite: 22]>
+        </div>
+
+        <div class="step-block">
+            <div>
+                <h3>2. Choose your flavours</h3>
+                <ul>
+                    <li>Chocolate</li>
+                    <li>Vanilla</li>
+                    <li>Blueberry</li>
+                    <li>Strawberry</li>
+                    <li>Pistachio</li>
+                    <li>Almond</li>
+                    <li>Tiramisu</li>
+                </ul>
+            </div>
+            <img src="45bf1ae4-9ddc-4283-a827-c1b642840db7.jpg" alt="Flavours" style="width: 180px; height: auto;"[cite: 16]>
+        </div>
+
+        <div class="step-block">
+            <div>
+                <h3>3. Enjoy</h3>
+                <ul>
+                    <li>Pick up in store</li>
+                    <li>Home delivery or delivery service</li>
+                </ul>
+            </div>
+            <img src="a36f5605-45e7-48e3-b005-fba3c2e8766e.jpg" alt="Store" style="width: 180px; height: auto;"[cite: 19]>
+        </div>
+
+        <button style="font-size: 16px; padding: 12px 30px;">Create Box</button>
+    </section>
+
+    <!-- Контакти / Футер -->
+    <footer id="contact">
+        <p>Social media | Order | Contact</p>
+        <p>&copy; 2026 Bakery Blair</p>
+    </footer>
+
+</body>
+</html>
