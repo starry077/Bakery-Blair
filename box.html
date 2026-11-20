@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create your Box – Bakery Blair</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Ponnala&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Навігація (Flexbox) -->
+    <header id="top" class="site-header">
+        <nav class="nav">
+            <ul class="nav-list">
+                <li><a href="index.html">home</a></li>
+
+                <!-- Пункт з підменю: relative -->
+                <li class="has-submenu">
+                    <a href="discover.html">shop <span class="arrow">&#9662;</span></a>
+                    <!-- Підменю: absolute -->
+                    <ul class="submenu">
+                        <li><a href="discover.html#cheese">Yellow Cheese</a></li>
+                        <li><a href="discover.html#tiramisu">Tiramisu</a></li>
+                        <li><a href="discover.html#corn">Sweet Corn</a></li>
+                    </ul>
+                </li>
+
+                <li class="logo"><a href="index.html">Bakery<br>Blair</a></li>
+                <li><a href="index.html#about">about</a></li>
+                <li><a href="#contact">contact</a></li>
+            </ul>
+
+            <!-- Елемент пошуку -->
+            <form class="search" role="search" onsubmit="return false;">
+                <input type="search" placeholder="Search..." aria-label="Search">
+                <button type="submit" class="search-btn" aria-label="Search">
+                    <span class="search-icon"></span>
+                </button>
+            </form>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-head">
+            <a href="index.html" class="back" aria-label="Back to home"></a>
+        </div>
+
+        <!-- Кроки (Grid) -->
+        <section class="steps">
+            <div class="step step-1">
+                <div class="num"><span>1.</span></div>
+                <div class="step-text">
+                    <h2>Choose your Box</h2>
+                    <ul>
+                        <li>Cardboard box</li>
+                        <li>Metal box</li>
+                        <li>Duo box</li>
+                    </ul>
+                </div>
+                <img src="e7804679-40c4-4277-b8c3-f092df86e21d.png" alt="Box">
+            </div>
+
+            <div class="step step-2">
+                <div class="num"><span>2.</span></div>
+                <div class="step-text">
+                    <h2>Choose your flavours</h2>
+                    <ul>
+                        <li>Chocolate</li>
+                        <li>Vanilla</li>
+                        <li>Blueberry</li>
+                        <li>Strawberry</li>
+                        <li>Pistachio</li>
+                        <li>Almond</li>
+                        <li>Tiramisu</li>
+                    </ul>
+                </div>
+                <img src="45bf1ae4-9ddc-4283-a827-c1b642840db7.png" alt="Flavours">
+            </div>
+
+            <div class="step step-3">
+                <div class="num"><span>3.</span></div>
+                <div class="step-text">
+                    <h2>Enjoy</h2>
+                    <ul>
+                        <li>Pick up in store</li>
+                        <li>Home delivery or delivery service</li>
+                    </ul>
+                </div>
+                <img src="a36f5605-45e7-48e3-b005-fba3c2e8766e.jpg" alt="Store">
+            </div>
+        </section>
+    </main>
+
+    <!-- Футер (Flexbox) -->
+    <footer id="contact" class="footer">
+        <ul class="footer-links">
+            <li><a href="#">social media</a></li>
+            <li><a href="box.html">order</a></li>
+            <li><a href="#contact">contact</a></li>
+        </ul>
+        <p>&copy; 2026 Bakery Blair</p>
+    </footer>
+
+    <!-- Кнопка "вгору": fixed, лівий нижній кут, стрілка зроблена CSS transform -->
+    <a href="#top" class="to-top" aria-label="Back to top"><span class="chevron"></span></a>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our flavours – Bakery Blair</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Ponnala&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Навігація (Flexbox) -->
+    <header id="top" class="site-header">
+        <nav class="nav">
+            <ul class="nav-list">
+                <li><a href="index.html">home</a></li>
+
+                <!-- Пункт з підменю: relative -->
+                <li class="has-submenu">
+                    <a href="discover.html">shop <span class="arrow">&#9662;</span></a>
+                    <!-- Підменю: absolute -->
+                    <ul class="submenu">
+                        <li><a href="#cheese">Yellow Cheese</a></li>
+                        <li><a href="#tiramisu">Tiramisu</a></li>
+                        <li><a href="#corn">Sweet Corn</a></li>
+                    </ul>
+                </li>
+
+                <li class="logo"><a href="index.html">Bakery<br>Blair</a></li>
+                <li><a href="index.html#about">about</a></li>
+                <li><a href="#contact">contact</a></li>
+            </ul>
+
+            <!-- Елемент пошуку -->
+            <form class="search" role="search" onsubmit="return false;">
+                <input type="search" placeholder="Search..." aria-label="Search">
+                <button type="submit" class="search-btn" aria-label="Search">
+                    <span class="search-icon"></span>
+                </button>
+            </form>
+        </nav>
+    </header>
+
+    <main class="products">
+        <div class="drip" aria-hidden="true"></div>
+
+        <div class="page-head">
+            <a href="index.html" class="back" aria-label="Back to home"></a>
+            <h1 class="page-title">Our flavours</h1>
+        </div>
+
+        <!-- Yellow Cheese -->
+        <div class="product-item" id="cheese">
+            <div class="product-card">
+                <span class="heart" aria-hidden="true"></span>
+                <img src="85fc03af-7cc6-4b5b-998e-485e3d695f2f.png" alt="Yellow Cheese Cream Filled">
+                <div class="product-info">
+                    <h3>Yellow Cheese Cream Filled</h3>
+                    <p>A journey balancing delicate sweetness and bold flavor! Succumb to this New York Roll featuring crisp, golden pastry generously filled with a creamy yellow cheese filling. Combining the richness of slightly salty cream cheese with a smooth, melting center, every bite is an explosion of flavor. Topped with a subtle glaze and a hint of savory garnish, this roll reimagines a New York classic with an original, comforting twist.</p>
+                    <button class="btn btn-small">Add to cart</button>
+                </div>
+            </div>
+            <div class="price">4.50€</div>
+        </div>
+
+        <!-- Tiramisu -->
+        <div class="product-item" id="tiramisu">
+            <div class="product-card">
+                <span class="heart" aria-hidden="true"></span>
+                <img class="crop-middle" src="5794ade5-6e26-4a5f-9269-1ab10de974f1.png" alt="Tiramisu Cream Filled">
+                <div class="product-info">
+                    <h3>Tiramisu Cream Filled</h3>
+                    <p>Italian elegance meets New York flair. Discover this deliciously flaky New York Roll, filled with a creamy tiramisu filling. With intense coffee notes, smooth mascarpone, and a touch of cocoa, every bite evokes the famous Italian dessert—reimagined as chic street food. A perfect balance of crisp pastry and a melting center for a moment of pure indulgence.</p>
+                    <button class="btn btn-small">Add to cart</button>
+                </div>
+            </div>
+            <div class="price">5.00€</div>
+        </div>
+
+        <!-- Sweet Corn -->
+        <div class="product-item" id="corn">
+            <div class="product-card">
+                <span class="heart" aria-hidden="true"></span>
+                <img src="aa8ec759-db70-4f8d-b5c4-2cbbed3b908b.png" alt="Sweet Corn">
+                <div class="product-info">
+                    <h3>Sweet Corn</h3>
+                    <p>A sweet surprise straight from the fields! This golden-pastry New York Roll conceals a smooth, velvety sweet corn cream—a unique flavor that subtly blends indulgence with lightness. The natural sweetness of the corn harmonizes perfectly with the crisp pastry, creating a taste experience that is unexpected yet incredibly addictive.</p>
+                    <button class="btn btn-small">Add to cart</button>
+                </div>
+            </div>
+            <div class="price">4.80€</div>
+        </div>
+    </main>
+
+    <!-- Футер (Flexbox) -->
+    <footer id="contact" class="footer">
+        <ul class="footer-links">
+            <li><a href="#">social media</a></li>
+            <li><a href="box.html">order</a></li>
+            <li><a href="#contact">contact</a></li>
+        </ul>
+        <p>&copy; 2026 Bakery Blair</p>
+    </footer>
+
+    <!-- Кнопка "вгору": fixed, лівий нижній кут, стрілка зроблена CSS transform -->
+    <a href="#top" class="to-top" aria-label="Back to top"><span class="chevron"></span></a>
+
+</body>
+</html>

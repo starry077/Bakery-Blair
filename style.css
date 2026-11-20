@@ -1,0 +1,611 @@
+/* ===== Кольори та шрифти з макету Gourmandise ===== */
+:root {
+    --lavender: #eeeefd;
+    --pink: #f2cfd6;
+    --pink-heart: #f7aabd;
+    --peach: #f7e3d6;
+    --white: #ffffff;
+    --ink: #1d1d1d;
+    --serif: "Old Standard TT", Georgia, serif;   /* заголовки, меню, кнопки */
+    --text: "Ponnala", Arial, sans-serif;         /* описи та списки */
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    background: var(--white);
+    color: var(--ink);
+    font-family: var(--serif);
+    line-height: 1.5;
+    text-align: center;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    margin: 0 0 .4em;
+}
+
+.page-title { font-size: clamp(36px, 5vw, 56px); }
+
+/* ===== Кнопки ===== */
+.btn {
+    display: inline-block;
+    font-family: var(--serif);
+    font-size: 28px;
+    padding: 8px 64px;
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--ink);
+    cursor: pointer;
+}
+.btn:hover { background: var(--lavender); }
+.btn-peach { background: var(--peach); }
+.btn-peach:hover { background: var(--pink); }
+.btn-small {
+    font-size: 16px;
+    padding: 6px 22px;
+    border: none;
+    background: var(--peach);
+}
+
+/* ===== 1. Навігація з підменю (Flexbox + position) ===== */
+.site-header {
+    position: relative;
+    z-index: 50;
+    background: var(--lavender);
+    border-top: 22px solid var(--pink);
+    border-bottom: 1px solid var(--ink);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 12px 24px;
+}
+
+.nav-list {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+
+.nav-list a { display: block; padding: 6px 4px; }
+.nav-list > li > a:hover { color: #b0697a; }
+
+.logo a {
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* батьківський пункт — relative */
+.has-submenu { position: relative; }
+
+.arrow {
+    display: inline-block;
+    font-size: 13px;
+}
+.has-submenu:hover .arrow,
+.has-submenu:focus-within .arrow { transform: rotate(180deg); }
+
+/* підменю — absolute */
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 170px;
+    list-style: none;
+    margin: 0;
+    padding: 6px;
+    background: var(--white);
+    border: 1px solid var(--ink);
+    border-radius: 8px;
+    display: none;
+    z-index: 60;
+}
+.submenu li + li { margin-top: 4px; }
+.submenu a {
+    padding: 6px 12px;
+    border-radius: 6px;
+    background: var(--lavender);
+    font-size: 16px;
+}
+.submenu a:hover { background: var(--pink); }
+
+.has-submenu:hover .submenu,
+.has-submenu:focus-within .submenu { display: block; }
+
+/* ===== 4. Пошук ===== */
+.search {
+    display: flex;
+    align-items: center;
+    width: 210px;
+    height: 40px;
+    padding: 0 6px 0 18px;
+    background: var(--white);
+    border: 1.5px solid #bdbdbd;
+    border-radius: 999px;
+}
+.search input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    font: 17px var(--serif);
+    color: var(--ink);
+}
+.search input::placeholder { color: #8a8a8a; }
+.search input::-webkit-search-cancel-button { display: none; }
+.search-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+}
+/* лупа зроблена лише CSS */
+.search-icon {
+    position: relative;
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    transform: translate(-2px, -2px);
+}
+.search-icon::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 7px;
+    background: var(--ink);
+    right: -4px;
+    bottom: -6px;
+    transform: rotate(-45deg);
+}
+
+/* ===== Головна: hero (Grid) ===== */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 560px;
+    background: var(--lavender);
+    border-bottom: 1px solid var(--ink);
+}
+.hero > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    overflow: hidden;
+}
+.hero-text h1 { font-size: clamp(40px, 5vw, 64px); }
+
+/* рожева зірка */
+.star {
+    position: relative;
+    width: min(460px, 100%);
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+}
+.star::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("star.png") center / contain no-repeat;
+}
+/* текст рівним квадратним блоком по центру зірки */
+.star p {
+    position: relative;
+    width: 50%;
+    aspect-ratio: 1;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    line-height: 2.05;
+    text-align: justify;
+    text-align-last: center;
+    hyphens: auto;
+}
+/* білі кривульки на зірці */
+.squiggle {
+    position: absolute;
+    fill: none;
+    stroke: var(--white);
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.squiggle-curl { top: 8%; right: 14%; width: 64px; }
+.squiggle-wave { bottom: 20%; left: 4%; width: 70px; }
+
+/* ===== Потьоки глазурі ===== */
+.drip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: url("drip.webp") top / 100% auto no-repeat;
+    pointer-events: none;
+}
+
+/* ===== Головна: наші смаки (Flexbox) ===== */
+.flavours {
+    position: relative;
+    padding: 70px 24px 70px;
+    background: var(--peach);
+    border-bottom: 1px solid var(--ink);
+}
+/* потьоки на всю ширину і ~70% висоти блоку, як у макеті */
+.flavours .drip { background-size: 100% 70%; }
+.flavours h2 { position: relative; font-size: clamp(36px, 5vw, 56px); }
+.flavour-list {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    width: 78%;
+    margin: 20px auto 60px;
+}
+.flavour-list figure { margin: 0; width: 220px; }
+.flavour-list img {
+    width: 220px;
+    height: 220px;
+    object-fit: contain;
+    margin: 0 auto 16px;
+}
+.flavour-list figcaption { font-size: 18px; }
+
+/* з картинки, де три роли поруч, показуємо лише середній (тірамісу) */
+.flavour-list img.crop-middle,
+.product-card img.crop-middle {
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+/* ===== Головна: Create your Box (Grid) ===== */
+.box-teaser {
+    padding: 80px 24px;
+    background: repeating-linear-gradient(90deg, var(--pink) 0 40px, var(--white) 40px 80px);
+}
+.box-card {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 36px 24px 44px;
+    background: var(--white);
+}
+.box-card h2 { font-size: 36px; }
+.mini-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin: 24px 0 40px;
+}
+.mini-step { display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 18px; }
+
+/* сердечко зроблене CSS transform */
+.heart {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    margin: 10px 0 4px;
+    background: var(--pink-heart);
+    transform: rotate(-45deg);
+}
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: inherit;
+    border-radius: 50%;
+}
+.heart::before { top: -9px; left: 0; }
+.heart::after { left: 9px; top: 0; }
+
+/* ===== 3. Зображення з текстом, що ховається при наведенні ===== */
+.hover-image {
+    position: relative;
+    width: 150px;
+    height: 170px;
+    overflow: hidden;
+}
+.hover-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .2;               /* спочатку зображення тьмяне */
+    transition: opacity .4s;
+}
+.hover-image span {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 8px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: opacity .4s;
+}
+.hover-image:hover img { opacity: 1; }
+.hover-image:hover span { opacity: 0; }
+
+/* ===== Сторінки discover і box: заголовок зі стрілкою назад ===== */
+.page-head {
+    position: relative;
+    padding: 40px 80px 20px;
+}
+.page-head h1 { position: relative; margin: 0; }
+.back {
+    position: absolute;
+    left: 40px;
+    top: 50px;
+    width: 34px;
+    height: 34px;
+    border-left: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+    transform: rotate(45deg);
+}
+
+/* ===== Discover: товари ===== */
+.products {
+    position: relative;
+    padding-bottom: 60px;
+}
+.products .drip { background-size: 100% 520px; }
+
+/* Grid: картка + ціна */
+.product-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 140px;
+    align-items: center;
+    gap: 40px;
+    max-width: 1060px;
+    margin: 30px auto 70px;
+    padding: 0 24px;
+}
+
+/* Grid: фото + текст */
+.product-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 24px;
+    align-items: center;
+    padding: 20px 24px;
+    background: var(--lavender);
+}
+.product-card img {
+    width: 240px;
+    height: 240px;
+    object-fit: contain;
+}
+.product-info { display: flex; flex-direction: column; }
+.product-info h3 { font-size: 30px; }
+.product-info p {
+    margin: 0 0 16px;
+    font-family: var(--text);
+    font-size: 14px;
+    line-height: 1.6;
+}
+.product-info .btn { align-self: flex-end; }
+
+.product-card .heart {
+    position: absolute;
+    left: -14px;
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    transform: translateY(-50%) rotate(-45deg);
+}
+.product-card .heart::before,
+.product-card .heart::after { width: 30px; height: 30px; }
+.product-card .heart::before { top: -15px; }
+.product-card .heart::after { left: 15px; }
+
+.price {
+    width: 140px;
+    height: 140px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--ink);
+    border-radius: 50%;
+    background: var(--pink);
+    font-size: 36px;
+}
+
+/* ===== Box: кроки (Grid) ===== */
+.steps {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 10px 24px 60px;
+}
+.step {
+    display: grid;
+    grid-template-columns: 240px 1fr 240px;
+    grid-template-areas: "num text img";
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 50px;
+    text-align: left;
+}
+/* 2-й крок зміщений і віддзеркалений, як у макеті */
+.step-2 {
+    grid-template-columns: 240px 1fr 260px;
+    grid-template-areas: "img text num";
+    margin-left: 12%;
+}
+.step-3 { margin-right: 10%; }
+
+.num {
+    grid-area: num;
+    position: relative;
+    width: 220px;
+    height: 220px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--lavender);
+    font-size: 100px;
+    line-height: 1;
+    justify-self: center;
+}
+.step-2 .num { width: 250px; height: 250px; }
+/* маленьке рожеве коло, що накладається на велике */
+.num::after {
+    content: "";
+    position: absolute;
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    background: var(--pink);
+}
+.step-1 .num::after { right: -10px; bottom: 0; }
+.step-2 .num::after { left: 10px; bottom: -15px; }
+.step-3 .num::after { left: -10px; top: -10px; }
+.num span { position: relative; z-index: 1; }
+
+.step-text { grid-area: text; }
+.step-text h2 { font-size: 40px; }
+.step-text ul {
+    margin: 0;
+    padding-left: 20px;
+    font-family: var(--text);
+    font-size: 15px;
+    line-height: 2;
+}
+.step img {
+    grid-area: img;
+    width: 240px;
+    height: 240px;
+    object-fit: contain;
+    justify-self: center;
+}
+
+/* ===== Футер (Flexbox) ===== */
+.footer {
+    background: var(--lavender);
+    border-top: 1px solid var(--ink);
+}
+.footer-links {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0;
+    padding: 34px 24px;
+    font-size: 20px;
+}
+.footer-links a:hover { color: #b0697a; }
+.footer p {
+    margin: 0;
+    padding: 6px;
+    background: var(--pink);
+    font-size: 13px;
+}
+
+/* ===== 2. Кнопка "вгору" (fixed, лівий нижній кут) ===== */
+.to-top {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 100; /* поверх усіх елементів */
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    background: var(--pink);
+    border: 1px solid var(--ink);
+    border-radius: 50%;
+}
+.to-top:hover { background: var(--peach); }
+/* стрілка: квадрат з двома рамками, повернутий transform */
+.chevron {
+    width: 14px;
+    height: 14px;
+    border-top: 2px solid var(--ink);
+    border-left: 2px solid var(--ink);
+    transform: translateY(3px) rotate(45deg);
+}
+
+/* ===== Адаптивність ===== */
+@media (max-width: 960px) {
+    .nav { flex-wrap: wrap; justify-content: center; }
+    .nav-list { flex-basis: 100%; }
+    .search { width: 100%; max-width: 360px; }
+
+    .hero { grid-template-columns: 1fr; }
+    .hero > img { max-height: 380px; }
+
+    .product-item { grid-template-columns: 1fr; justify-items: center; gap: 20px; }
+    .product-card { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+    .product-card img { width: 200px; height: 200px; }
+    .product-info .btn { align-self: center; }
+    .price { width: 110px; height: 110px; font-size: 28px; }
+
+    .step,
+    .step-2 {
+        grid-template-columns: 1fr;
+        grid-template-areas: "num" "text" "img";
+        justify-items: center;
+        text-align: center;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .step-text ul { list-style: none; padding: 0; }
+}
+
+@media (max-width: 640px) {
+    .nav { padding: 8px 16px; }
+    .nav-list { flex-wrap: wrap; font-size: 17px; gap: 4px 12px; }
+    .logo { order: -1; flex-basis: 100%; }
+    .logo a { font-size: 24px; }
+
+    .flavours, .box-teaser { padding-left: 16px; padding-right: 16px; }
+    .btn { font-size: 22px; padding: 8px 44px; }
+    .mini-steps { grid-template-columns: 1fr; justify-items: center; }
+    .drip,
+    .flavours .drip { background-size: 100% 320px; }
+    .flavour-list { grid-template-columns: 1fr; width: 100%; gap: 30px; }
+
+    .page-head { padding: 30px 56px 16px; }
+    .back { left: 22px; top: 42px; width: 22px; height: 22px; }
+    .product-item { padding: 0 16px; }
+
+    .num, .step-2 .num { width: 160px; height: 160px; font-size: 70px; }
+    .num::after { width: 64px; height: 64px; }
+
+    .footer-links { flex-direction: column; gap: 12px; padding: 24px 16px; }
+}

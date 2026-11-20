@@ -2,231 +2,137 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bakery Blair</title>
-    <style>
-        body {
-            background-color: #f5e6e8;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            text-align: center;
-        }
-        header {
-            background-color: #e5b9bc;
-            padding: 15px;
-        }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #5c4033;
-            font-weight: bold;
-        }
-        section {
-            padding: 30px;
-            margin: 20px auto;
-            background-color: #ffffff;
-            width: 85%;
-            max-width: 750px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-        }
-        img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-        .home-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            text-align: left;
-        }
-        .home-text {
-            flex: 1;
-        }
-        .product-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #faf0f2;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            text-align: left;
-        }
-        .product-info {
-            flex: 1;
-            padding: 0 20px;
-        }
-        .product-info h3 {
-            margin-top: 0;
-            color: #5c4033;
-        }
-        .price {
-            font-size: 20px;
-            font-weight: bold;
-            color: #d88c9a;
-            background: #fff;
-            padding: 15px;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .step-block {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            margin-bottom: 30px;
-            text-align: left;
-            background: #faf0f2;
-            padding: 20px;
-            border-radius: 10px;
-        }
-        .step-block ul {
-            margin: 5px 0 0 20px;
-            padding: 0;
-        }
-        button {
-            background-color: #d88c9a;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        button:hover {
-            background-color: #c57684;
-        }
-        footer {
-            background-color: #e5b9bc;
-            padding: 15px;
-            margin-top: 30px;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Ponnala&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Верхнє меню -->
-    <header>
-        <h2>BAKERY BLAIR</h2>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#discover">Discover</a>
-            <a href="#box">Create Box</a>
-            <a href="#contact">Contact</a>
+    <!-- Навігація (Flexbox) -->
+    <header id="top" class="site-header">
+        <nav class="nav">
+            <ul class="nav-list">
+                <li><a href="index.html">home</a></li>
+
+                <!-- Пункт з підменю: relative -->
+                <li class="has-submenu">
+                    <a href="discover.html">shop <span class="arrow">&#9662;</span></a>
+                    <!-- Підменю: absolute -->
+                    <ul class="submenu">
+                        <li><a href="discover.html#cheese">Yellow Cheese</a></li>
+                        <li><a href="discover.html#tiramisu">Tiramisu</a></li>
+                        <li><a href="discover.html#corn">Sweet Corn</a></li>
+                    </ul>
+                </li>
+
+                <li class="logo"><a href="index.html">Bakery<br>Blair</a></li>
+                <li><a href="index.html#about">about</a></li>
+                <li><a href="#contact">contact</a></li>
+            </ul>
+
+            <!-- Елемент пошуку -->
+            <form class="search" role="search" onsubmit="return false;">
+                <input type="search" placeholder="Search..." aria-label="Search">
+                <button type="submit" class="search-btn" aria-label="Search">
+                    <span class="search-icon"></span>
+                </button>
+            </form>
         </nav>
     </header>
 
-    <!-- Головна сторінка з новим текстом -->
-    <section id="home">
-        <h1>New York Rolls</h1>
-        <div class="home-content">
-            <div class="home-text">
-                <p>Indulge in the New York Roll, the trendy pastry that has foodies around the world swooning! Straight from New York bakeries, this unique creation blends the crispiness of a croissant with a generous, melting center—all in a round, ultra-indulgent format.</p>
+    <main>
+        <!-- Hero (Grid: 2 колонки) -->
+        <section class="hero" id="about">
+            <img src="7c415c61-64c7-46a8-bc48-3c3bfce2985f.jpg" alt="New York Rolls in the bakery window">
+
+            <div class="hero-text">
+                <h1>New York Rolls</h1>
+                <div class="star">
+                    <!-- білі кривульки -->
+                    <svg class="squiggle squiggle-curl" viewBox="0 0 64 44" aria-hidden="true">
+                        <path d="M4 40 C2 20 18 4 34 6 C50 8 52 28 38 30 C26 32 26 16 40 14 C50 13 58 20 60 30"/>
+                    </svg>
+                    <svg class="squiggle squiggle-wave" viewBox="0 0 70 30" aria-hidden="true">
+                        <path d="M4 16 C10 4 18 4 22 14 C26 24 34 24 38 14 C42 4 50 4 54 14"/>
+                        <path d="M30 26 C40 22 52 24 66 20"/>
+                    </svg>
+                    <p>Fall for the New York Roll, the trendy pastry that food lovers around the world are going crazy for! Straight from New York's bakeries, this creation combines the crunch of a croissant with the generosity of a melting centre, in a round and ultra-indulgent shape.</p>
+                </div>
             </div>
-            <img src="7c415c61-64c7-46a8-bc48-3c3bfce2985f.jpg" alt="Bakery Display" style="width: 220px; height: auto;"[cite: 15]>
-        </div>
-    </section>
+        </section>
 
-    <!-- Розділ смаків -->
-    <section id="discover">
-        <h2>Our Flavours</h2>
-
-        <!-- Yellow Cheese -->
-        <div class="product-item">
-            <img src="aa8ec759-db70-4f8d-b5c4-2cbbed3b908b.jpg" alt="Yellow Cheese Cream Filled"[cite: 20]>
-            <div class="product-info">
-                <h3>Yellow Cheese Crem Filled</h3>
-                <p>A journey balancing delicate sweetness and bold flavor! Succumb to this New York Roll featuring crisp, golden pastry generously filled with a creamy yellow cheese filling. Combining the richness of slightly salty cream cheese with a smooth, melting center, every bite is an explosion of flavor. Topped with a subtle glaze and a hint of savory garnish, this roll reimagines a New York classic with an original, comforting twist.</p>
-                <br>
-                <button>Add to cart</button>
+        <!-- Наші смаки (Flexbox) -->
+        <section class="flavours">
+            <div class="drip" aria-hidden="true"></div>
+            <h2>Our flavours</h2>
+            <div class="flavour-list">
+                <figure>
+                    <img src="85fc03af-7cc6-4b5b-998e-485e3d695f2f.png" alt="Yellow Cheese Cream Filled">
+                    <figcaption>Yellow Cheese Cream Filled</figcaption>
+                </figure>
+                <figure>
+                    <img class="crop-middle" src="5794ade5-6e26-4a5f-9269-1ab10de974f1.png" alt="Tiramisu Cream Filled">
+                    <figcaption>Tiramisu Cream Filled</figcaption>
+                </figure>
+                <figure>
+                    <img src="aa8ec759-db70-4f8d-b5c4-2cbbed3b908b.png" alt="Sweet Corn">
+                    <figcaption>Sweet Corn</figcaption>
+                </figure>
             </div>
-            <div class="price">4.50€</div>
-        </div>
+            <a href="discover.html" class="btn">discover</a>
+        </section>
 
-        <!-- Tiramisu -->
-        <div class="product-item">
-            <img src="5794ade5-6e26-4a5f-9269-1ab10de974f1.jpg" alt="Tiramisu Cream Filled"[cite: 18]>
-            <div class="product-info">
-                <h3>Tiramisu Cream Filled</h3>
-                <p>Italian elegance meets New York flair. Discover this deliciously flaky New York Roll, filled with a creamy tiramisu filling. With intense coffee notes, smooth mascarpone, and a touch of cocoa, every bite evokes the famous Italian dessert—reimagined as chic street food. A perfect balance of crisp pastry and a melting center for a moment of pure indulgence.</p>
-                <br>
-                <button>Add to cart</button>
+        <!-- Create your Box (Grid) -->
+        <section class="box-teaser">
+            <div class="box-card">
+                <h2>Create your Box</h2>
+                <div class="mini-steps">
+                    <div class="mini-step">
+                        <span class="heart" aria-hidden="true"></span>
+                        Choose your Box
+                        <!-- Зображення: тьмяне з текстом, при наведенні текст ховається -->
+                        <div class="hover-image">
+                            <img src="boxes.webp" style="object-position: 0% 50%;" alt="Gift boxes">
+                            <span>Box</span>
+                        </div>
+                    </div>
+                    <div class="mini-step">
+                        <span class="heart" aria-hidden="true"></span>
+                        Choose your flavours
+                        <div class="hover-image">
+                            <img src="boxes.webp" style="object-position: 55% 50%;" alt="Box of assorted rolls">
+                            <span>Flavours</span>
+                        </div>
+                    </div>
+                    <div class="mini-step">
+                        <span class="heart" aria-hidden="true"></span>
+                        Enjoy
+                        <div class="hover-image">
+                            <img src="boxes.webp" style="object-position: 100% 50%;" alt="Rolls ready to enjoy">
+                            <span>Enjoy</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="box.html" class="btn btn-peach">add</a>
             </div>
-            <div class="price">5.00€</div>
-        </div>
+        </section>
+    </main>
 
-        <!-- Sweet Corn -->
-        <div class="product-item">
-            <img src="85fc03af-7cc6-4b5b-998e-485e3d695f2f.jpg" alt="Sweet Corn"[cite: 17]>
-            <div class="product-info">
-                <h3>Sweet Corn</h3>
-                <p>A sweet surprise straight from the fields! This golden-pastry New York Roll conceals a smooth, velvety sweet corn cream—a unique flavor that subtly blends indulgence with lightness. The natural sweetness of the corn harmonizes perfectly with the crisp pastry, creating a taste experience that is unexpected yet incredibly addictive.</p>
-                <br>
-                <button>Add to cart</button>
-            </div>
-            <div class="price">4.80€</div>
-        </div>
-    </section>
-
-    <!-- Створення боксу -->
-    <section id="box">
-        <h2>Create your Box</h2>
-
-        <div class="step-block">
-            <div>
-                <h3>1. Choose your Box</h3>
-                <ul>
-                    <li>Cardboard box</li>
-                    <li>Metal box</li>
-                    <li>Duo box</li>
-                </ul>
-            </div>
-            <img src="e7804679-40c4-4277-b8c3-f092df86e21d.jpg" alt="Box" style="width: 180px; height: auto;"[cite: 22]>
-        </div>
-
-        <div class="step-block">
-            <div>
-                <h3>2. Choose your flavours</h3>
-                <ul>
-                    <li>Chocolate</li>
-                    <li>Vanilla</li>
-                    <li>Blueberry</li>
-                    <li>Strawberry</li>
-                    <li>Pistachio</li>
-                    <li>Almond</li>
-                    <li>Tiramisu</li>
-                </ul>
-            </div>
-            <img src="45bf1ae4-9ddc-4283-a827-c1b642840db7.jpg" alt="Flavours" style="width: 180px; height: auto;"[cite: 16]>
-        </div>
-
-        <div class="step-block">
-            <div>
-                <h3>3. Enjoy</h3>
-                <ul>
-                    <li>Pick up in store</li>
-                    <li>Home delivery or delivery service</li>
-                </ul>
-            </div>
-            <img src="a36f5605-45e7-48e3-b005-fba3c2e8766e.jpg" alt="Store" style="width: 180px; height: auto;"[cite: 19]>
-        </div>
-
-        <button style="font-size: 16px; padding: 12px 30px;">Create Box</button>
-    </section>
-
-    <!-- Контакти / Футер -->
-    <footer id="contact">
-        <p>Social media | Order | Contact</p>
+    <!-- Футер (Flexbox) -->
+    <footer id="contact" class="footer">
+        <ul class="footer-links">
+            <li><a href="#">social media</a></li>
+            <li><a href="box.html">order</a></li>
+            <li><a href="#contact">contact</a></li>
+        </ul>
         <p>&copy; 2026 Bakery Blair</p>
     </footer>
+
+    <!-- Кнопка "вгору": fixed, лівий нижній кут, стрілка зроблена CSS transform -->
+    <a href="#top" class="to-top" aria-label="Back to top"><span class="chevron"></span></a>
 
 </body>
 </html>
