@@ -13,33 +13,35 @@
 
     <!-- Навігація (Flexbox) -->
     <header id="top" class="site-header">
-        <nav class="nav">
+        <nav class="main-nav">
+            <!-- Адаптивне меню: чекбокс відкриває список на малих екранах -->
+            <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Open menu">
+            <label for="menu-toggle" class="burger"><span class="burger-open">&#9776;</span><span class="burger-close">&#10005;</span></label>
+            <a href="index.html" class="logo-mobile">Bakery Blair</a>
+
             <ul class="nav-list">
                 <li><a href="index.html">home</a></li>
-
-                <!-- Пункт з підменю: relative -->
                 <li class="has-submenu">
                     <a href="discover.html">shop <span class="arrow">&#9662;</span></a>
-                    <!-- Підменю: absolute -->
                     <ul class="submenu">
                         <li><a href="discover.html#cheese">Yellow Cheese</a></li>
                         <li><a href="discover.html#tiramisu">Tiramisu</a></li>
                         <li><a href="discover.html#corn">Sweet Corn</a></li>
                     </ul>
                 </li>
-
                 <li class="logo"><a href="index.html">Bakery<br>Blair</a></li>
-                <li><a href="index.html#about">about</a></li>
-                <li><a href="#contact">contact</a></li>
+                <li><a href="reviews.html">reviews</a></li>
+                <li><a href="reviews.html#feedback">contact</a></li>
             </ul>
 
-            <!-- Елемент пошуку -->
             <form class="search" role="search" onsubmit="return false;">
                 <input type="search" placeholder="Search..." aria-label="Search">
                 <button type="submit" class="search-btn" aria-label="Search">
                     <span class="search-icon"></span>
                 </button>
             </form>
+
+            <a href="#signin" class="signin">Sign in</a>
         </nav>
     </header>
 
@@ -51,7 +53,6 @@
             <div class="hero-text">
                 <h1>New York Rolls</h1>
                 <div class="star">
-                    <!-- білі кривульки -->
                     <svg class="squiggle squiggle-curl" viewBox="0 0 64 44" aria-hidden="true">
                         <path d="M4 40 C2 20 18 4 34 6 C50 8 52 28 38 30 C26 32 26 16 40 14 C50 13 58 20 60 30"/>
                     </svg>
@@ -64,7 +65,7 @@
             </div>
         </section>
 
-        <!-- Наші смаки (Flexbox) -->
+        <!-- Наші смаки -->
         <section class="flavours">
             <div class="drip" aria-hidden="true"></div>
             <h2>Our flavours</h2>
@@ -82,7 +83,7 @@
                     <figcaption>Sweet Corn</figcaption>
                 </figure>
             </div>
-            <a href="discover.html" class="btn">discover</a>
+            <a href="discover.html" class="pill">discover</a>
         </section>
 
         <!-- Create your Box (Grid) -->
@@ -93,7 +94,6 @@
                     <div class="mini-step">
                         <span class="heart" aria-hidden="true"></span>
                         Choose your Box
-                        <!-- Зображення: тьмяне з текстом, при наведенні текст ховається -->
                         <div class="hover-image">
                             <img src="boxes.webp" style="object-position: 0% 50%;" alt="Gift boxes">
                             <span>Box</span>
@@ -116,7 +116,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="box.html" class="btn btn-peach">add</a>
+                <a href="box.html" class="pill pill-peach">add</a>
             </div>
         </section>
     </main>
@@ -126,13 +126,84 @@
         <ul class="footer-links">
             <li><a href="#">social media</a></li>
             <li><a href="box.html">order</a></li>
-            <li><a href="#contact">contact</a></li>
+            <li><a href="invitation.html">invitation</a></li>
+            <li><a href="reviews.html#feedback">contact</a></li>
         </ul>
         <p>&copy; 2026 Bakery Blair</p>
     </footer>
 
-    <!-- Кнопка "вгору": fixed, лівий нижній кут, стрілка зроблена CSS transform -->
     <a href="#top" class="to-top" aria-label="Back to top"><span class="chevron"></span></a>
+
+    <!-- Модальне вікно входу (відкривається через :target) -->
+    <div id="signin" class="auth-modal" role="dialog" aria-labelledby="signin-title">
+        <a href="#" class="auth-backdrop" aria-label="Close"></a>
+        <form class="auth-card" action="#welcome" method="get">
+            <a href="#" class="auth-close" aria-label="Close">&#10005;</a>
+            <h2 id="signin-title">Sign in</h2>
+            <div class="field">
+                <label for="si-email">Email</label>
+                <input type="email" id="si-email" placeholder=" " required autocomplete="email">
+                <span class="ok-mark">&#10003;</span>
+                <p class="hint">Enter an email like name@example.com</p>
+            </div>
+            <div class="field">
+                <label for="si-pass">Password</label>
+                <input type="password" id="si-pass" placeholder=" " required minlength="8" pattern="(?=.*\d)(?=.*[A-Za-z]).{8,}" autocomplete="current-password">
+                <span class="ok-mark">&#10003;</span>
+                <p class="hint">At least 8 characters, with letters and a number</p>
+            </div>
+            <label class="check"><input type="checkbox"> Remember me</label>
+            <button type="submit" class="pill pill-peach submit">Sign in</button>
+            <p class="auth-switch">No account yet? <a href="#signup">Create one</a></p>
+        </form>
+    </div>
+
+    <!-- Модальне вікно реєстрації -->
+    <div id="signup" class="auth-modal" role="dialog" aria-labelledby="signup-title">
+        <a href="#" class="auth-backdrop" aria-label="Close"></a>
+        <form class="auth-card" action="#welcome" method="get">
+            <a href="#" class="auth-close" aria-label="Close">&#10005;</a>
+            <h2 id="signup-title">Create account</h2>
+            <div class="field">
+                <label for="su-name">Name</label>
+                <input type="text" id="su-name" placeholder=" " required pattern="[A-Za-zА-ЯҐЄІЇа-яґєії' \-]{2,40}" autocomplete="name">
+                <span class="ok-mark">&#10003;</span>
+                <p class="hint">Only letters, 2 to 40 characters</p>
+            </div>
+            <div class="field">
+                <label for="su-email">Email</label>
+                <input type="email" id="su-email" placeholder=" " required autocomplete="email">
+                <span class="ok-mark">&#10003;</span>
+                <p class="hint">Enter an email like name@example.com</p>
+            </div>
+            <div class="field">
+                <label for="su-phone">Phone</label>
+                <input type="tel" id="su-phone" placeholder=" " required pattern="\+?[0-9]{10,12}" autocomplete="tel">
+                <span class="ok-mark">&#10003;</span>
+                <p class="hint">10–12 digits, for example +380501234567</p>
+            </div>
+            <div class="field">
+                <label for="su-pass">Password</label>
+                <input type="password" id="su-pass" placeholder=" " required minlength="8" pattern="(?=.*\d)(?=.*[A-Za-z]).{8,}" autocomplete="new-password">
+                <span class="ok-mark">&#10003;</span>
+                <p class="hint">At least 8 characters, with letters and a number</p>
+            </div>
+            <label class="check"><input type="checkbox" required> I agree to the terms of use</label>
+            <button type="submit" class="pill pill-peach submit">Create account</button>
+            <p class="auth-switch">Already have an account? <a href="#signin">Sign in</a></p>
+        </form>
+    </div>
+
+    <!-- Після надсилання форми -->
+    <div id="welcome" class="auth-modal" role="dialog" aria-labelledby="welcome-title">
+        <a href="#" class="auth-backdrop" aria-label="Close"></a>
+        <div class="auth-card">
+            <a href="#" class="auth-close" aria-label="Close">&#10005;</a>
+            <h2 id="welcome-title">Welcome!</h2>
+            <p class="auth-note">The form is filled in correctly. This is a demo site without a server, so your data is not sent anywhere.</p>
+            <a href="#" class="pill pill-peach">continue</a>
+        </div>
+    </div>
 
 </body>
 </html>

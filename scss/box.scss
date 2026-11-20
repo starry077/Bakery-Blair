@@ -1,0 +1,150 @@
+// ===== Сторінка "Create your Box", стилізована за допомогою Sass =====
+// Компілюється в box.css (Live Sass Compiler у VS Code або pysassc)
+
+// --- Змінні ---
+$lavender: #eeeefd;
+$pink: #f2cfd6;
+$ink: #1d1d1d;
+$text-font: "Ponnala", Arial, sans-serif;
+
+$num-size: 220px;
+$num-size-big: 250px;
+$dot-size: 95px;
+$img-size: 240px;
+
+$tablet: 960px;
+$phone: 640px;
+
+// --- Міксини ---
+@mixin circle($size, $color) {
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    background: $color;
+}
+
+@mixin respond($width) {
+    @media (max-width: $width) {
+        @content;
+    }
+}
+
+// --- Кроки (Grid) ---
+.steps {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 10px 24px 60px;
+}
+
+.step {
+    display: grid;
+    grid-template-columns: $img-size 1fr $img-size;
+    grid-template-areas: "num text img";
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 50px;
+    text-align: left;
+    animation: fade-up .8s ease both;
+
+    // 2-й крок зміщений і віддзеркалений, як у макеті
+    &-2 {
+        grid-template-columns: $img-size 1fr ($img-size + 20px);
+        grid-template-areas: "img text num";
+        margin-left: 12%;
+        animation-delay: .15s;
+    }
+
+    &-3 {
+        margin-right: 10%;
+        animation-delay: .3s;
+    }
+
+    img {
+        grid-area: img;
+        width: $img-size;
+        height: $img-size;
+        object-fit: contain;
+        justify-self: center;
+        transition: transform .4s;
+    }
+
+    &:hover img { transform: translateY(-8px) rotate(-3deg); }
+
+    @include respond($tablet) {
+        &,
+        &-2 {
+            grid-template-columns: 1fr;
+            grid-template-areas: "num" "text" "img";
+            justify-items: center;
+            text-align: center;
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+}
+
+// --- Великі лавандові кола з номером ---
+.num {
+    grid-area: num;
+    position: relative;
+    @include circle($num-size, $lavender);
+    display: grid;
+    place-items: center;
+    font-size: 100px;
+    line-height: 1;
+    justify-self: center;
+    transition: transform .4s;
+
+    .step-2 & { width: $num-size-big; height: $num-size-big; }
+    .step:hover & { transform: scale(1.05); }
+
+    // маленьке рожеве коло, що накладається на велике
+    &::after {
+        content: "";
+        position: absolute;
+        @include circle($dot-size, $pink);
+    }
+
+    span { position: relative; z-index: 1; }
+
+    @include respond($phone) {
+        &,
+        .step-2 & { width: 160px; height: 160px; font-size: 70px; }
+        &::after { width: 64px; height: 64px; }
+    }
+}
+
+// положення рожевого кола для кожного кроку
+$dots: (
+    1: (right: -10px, bottom: 0),
+    2: (left: 10px, bottom: -15px),
+    3: (left: -10px, top: -10px)
+);
+
+@each $step, $pos in $dots {
+    .step-#{$step} .num::after {
+        @each $side, $value in $pos {
+            #{$side}: $value;
+        }
+    }
+}
+
+// --- Текст кроку ---
+.step-text {
+    grid-area: text;
+
+    h2 { font-size: 40px; }
+
+    ul {
+        margin: 0;
+        padding-left: 20px;
+        font-family: $text-font;
+        font-size: 15px;
+        line-height: 2;
+
+        @include respond($tablet) {
+            list-style: none;
+            padding: 0;
+        }
+    }
+}

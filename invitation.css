@@ -1,0 +1,153 @@
+/* ===== Запрошення на подію і конверт ===== */
+.invite-page { padding-bottom: 60px; }
+
+.print-bar { margin: 0 0 30px; }
+
+.invite-sheet {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    padding: 0 24px;
+}
+
+/* --- Конверт --- */
+.envelope {
+    position: relative;
+    width: 520px;
+    max-width: 100%;
+    aspect-ratio: 16 / 10;
+    background: var(--pink);
+    border: 1px solid var(--ink);
+    overflow: hidden;
+    text-align: left;
+    animation: fade-up .8s ease both;
+}
+/* клапан конверта — трикутник через clip-path */
+.envelope-flap {
+    position: absolute;
+    inset: 0 0 45% 0;
+    background: var(--peach);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    border-bottom: 1px solid var(--ink);
+}
+/* сургучна печатка з сердечком */
+.envelope-seal {
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    width: 64px;
+    height: 64px;
+    transform: translate(-50%, -50%);
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--lavender);
+    border: 1px solid var(--ink);
+}
+.envelope-seal .heart { margin: 6px 0 0; }
+.envelope-stamp {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 70px;
+    height: 84px;
+    padding: 6px;
+    background: var(--white);
+    border: 2px dashed var(--ink);
+    transform: rotate(4deg);
+}
+.envelope-stamp img { width: 100%; height: 100%; object-fit: contain; }
+.envelope-from {
+    position: absolute;
+    top: 16px;
+    left: 18px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+.envelope-to {
+    position: absolute;
+    right: 28px;
+    bottom: 18px;
+    width: 38%;
+    font-size: 16px;
+}
+.envelope-to .line {
+    margin: 4px 0 0;
+    min-height: 24px;
+    border-bottom: 1px solid var(--ink);
+    font-style: italic;
+}
+
+/* --- Картка запрошення --- */
+.invite-card {
+    position: relative;
+    width: 460px;
+    max-width: 100%;
+    padding: 110px 40px 40px;
+    background: var(--lavender);
+    border: 1px solid var(--ink);
+    overflow: hidden;
+    animation: fade-up .8s .2s ease both;
+}
+.invite-drip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 140px;
+    object-fit: fill;
+}
+.invite-kicker { position: relative; margin: 0; font-style: italic; font-size: 20px; }
+.invite-title { position: relative; font-size: 42px; line-height: 1.15; margin: 6px 0 18px; }
+.invite-rolls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+.invite-rolls img { width: 100px; height: 100px; object-fit: contain; }
+.invite-rolls img.crop-middle { object-fit: cover; }
+.invite-text { font-family: var(--text); font-size: 16px; line-height: 1.7; }
+.invite-details { margin: 20px 0; }
+.invite-details div {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--ink);
+}
+.invite-details dt { font-weight: 700; }
+.invite-details dd { margin: 0; text-align: right; }
+.invite-rsvp {
+    display: inline-block;
+    margin: 6px 0 0;
+    padding: 8px 24px;
+    border-radius: 999px;
+    background: var(--pink);
+}
+
+@media (max-width: 640px) {
+    .invite-card { padding: 90px 20px 30px; }
+    .invite-title { font-size: 32px; }
+    .invite-rolls img { width: 74px; height: 74px; }
+    .envelope-from { font-size: 12px; }
+    .envelope-stamp { width: 52px; height: 64px; }
+}
+
+/* --- Друк: лише конверт і запрошення, кожне на окремій сторінці --- */
+@media print {
+    @page { size: A4; margin: 15mm; }
+    body { background: #fff; }
+    .page-head, .print-bar, .footer { display: none !important; }
+    .invite-sheet { display: block; padding: 0; }
+    .envelope, .invite-card {
+        margin: 0 auto;
+        animation: none;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .envelope { width: 180mm; page-break-after: always; break-after: page; }
+    .invite-card { width: 140mm; }
+}

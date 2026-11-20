@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews – Bakery Blair</title>
+    <!-- Bootstrap 5.3 (сторінка зібрана на шаблонах Bootstrap) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Ponnala&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reviews.css">
+</head>
+<body>
+
+    <!-- Навігація (Flexbox) -->
+    <header id="top" class="site-header">
+        <nav class="main-nav">
+            <!-- Адаптивне меню: чекбокс відкриває список на малих екранах -->
+            <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Open menu">
+            <label for="menu-toggle" class="burger"><span class="burger-open">&#9776;</span><span class="burger-close">&#10005;</span></label>
+            <a href="index.html" class="logo-mobile">Bakery Blair</a>
+
+            <ul class="nav-list">
+                <li><a href="index.html">home</a></li>
+                <li class="has-submenu">
+                    <a href="discover.html">shop <span class="arrow">&#9662;</span></a>
+                    <ul class="submenu">
+                        <li><a href="discover.html#cheese">Yellow Cheese</a></li>
+                        <li><a href="discover.html#tiramisu">Tiramisu</a></li>
+                        <li><a href="discover.html#corn">Sweet Corn</a></li>
+                    </ul>
+                </li>
+                <li class="logo"><a href="index.html">Bakery<br>Blair</a></li>
+                <li><a href="reviews.html">reviews</a></li>
+                <li><a href="reviews.html#feedback">contact</a></li>
+            </ul>
+
+            <form class="search" role="search" onsubmit="return false;">
+                <input type="search" placeholder="Search..." aria-label="Search">
+                <button type="submit" class="search-btn" aria-label="Search">
+                    <span class="search-icon"></span>
+                </button>
+            </form>
+
+            <a href="#signin" class="signin">Sign in</a>
+        </nav>
+    </header>
+
+    <main class="reviews-page">
+        <div class="page-head">
+            <a href="index.html" class="back" aria-label="Back to home"></a>
+            <h1 class="page-title">Reviews</h1>
+        </div>
+
+        <!-- Карусель відгуків (Bootstrap Carousel) -->
+        <section class="container mb-5">
+            <div id="reviewsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#reviewsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Review 1"></button>
+                    <button type="button" data-bs-target="#reviewsCarousel" data-bs-slide-to="1" aria-label="Review 2"></button>
+                    <button type="button" data-bs-target="#reviewsCarousel" data-bs-slide-to="2" aria-label="Review 3"></button>
+                    <button type="button" data-bs-target="#reviewsCarousel" data-bs-slide-to="3" aria-label="Review 4"></button>
+                </div>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="review-card card mx-auto">
+                            <div class="card-body">
+                                <img src="85fc03af-7cc6-4b5b-998e-485e3d695f2f.png" alt="" class="review-img">
+                                <p class="stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                                <blockquote class="card-text">“The Yellow Cheese roll is my new weekend ritual. Crispy outside, creamy inside — I always take two.”</blockquote>
+                                <p class="review-author">Olena, Chernivtsi</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="review-card card mx-auto">
+                            <div class="card-body">
+                                <img src="5794ade5-6e26-4a5f-9269-1ab10de974f1.png" alt="" class="review-img crop-middle">
+                                <p class="stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                                <blockquote class="card-text">“Tiramisu filling tastes exactly like the real dessert. Ordered a Duo box for a birthday and everyone loved it.”</blockquote>
+                                <p class="review-author">Maksym, Kyiv</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="review-card card mx-auto">
+                            <div class="card-body">
+                                <img src="aa8ec759-db70-4f8d-b5c4-2cbbed3b908b.png" alt="" class="review-img">
+                                <p class="stars" aria-label="4 out of 5">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
+                                <blockquote class="card-text">“Sweet Corn sounded strange, but it is the surprise of the menu. Light, sweet and not too heavy.”</blockquote>
+                                <p class="review-author">Iryna, Lviv</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="review-card card mx-auto">
+                            <div class="card-body">
+                                <img src="e7804679-40c4-4277-b8c3-f092df86e21d.png" alt="" class="review-img">
+                                <p class="stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                                <blockquote class="card-text">“The gift box is so pretty that it is a pity to open it. Delivery came right on time.”</blockquote>
+                                <p class="review-author">Sofiia, Odesa</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Зворотний зв'язок (сітка Bootstrap) -->
+        <section id="feedback" class="feedback py-5">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-5">
+                        <h2 class="feedback-title">Leave your review</h2>
+                        <p class="feedback-text">Tell us which roll you liked most, ask about a box for your event or simply say hello. We read every message.</p>
+                        <ul class="list-unstyled feedback-info">
+                            <li>&#9829; Open every day, 8:00 – 20:00</li>
+                            <li>&#9829; Pick up in store or delivery</li>
+                            <li>&#9829; Answer within one day</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <!-- Форма: перевірка лише HTML + CSS; на Netlify повідомлення збираються Netlify Forms -->
+                        <form name="feedback" method="POST" action="reviews.html#thanks" data-netlify="true" netlify-honeypot="bot-field" class="feedback-form card">
+                            <input type="hidden" name="form-name" value="feedback">
+                            <p class="d-none"><label>Don't fill this out: <input name="bot-field"></label></p>
+                            <div class="row g-3">
+                                <div class="col-md-6 field">
+                                    <label for="fb-name">Name</label>
+                                    <input type="text" id="fb-name" name="name" placeholder=" " required pattern="[A-Za-zА-ЯҐЄІЇа-яґєії' \-]{2,40}">
+                                    <span class="ok-mark">&#10003;</span>
+                                    <p class="hint">Only letters, 2 to 40 characters</p>
+                                </div>
+                                <div class="col-md-6 field">
+                                    <label for="fb-email">Email</label>
+                                    <input type="email" id="fb-email" name="email" placeholder=" " required>
+                                    <span class="ok-mark">&#10003;</span>
+                                    <p class="hint">Enter an email like name@example.com</p>
+                                </div>
+                                <div class="col-12 field">
+                                    <label for="fb-flavour">Favourite flavour</label>
+                                    <select id="fb-flavour" name="flavour" class="form-select">
+                                        <option>Yellow Cheese Cream Filled</option>
+                                        <option>Tiramisu Cream Filled</option>
+                                        <option>Sweet Corn</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 field">
+                                    <label for="fb-message">Message</label>
+                                    <textarea id="fb-message" name="message" rows="4" placeholder=" " required minlength="10"></textarea>
+                                    <p class="hint">Write at least 10 characters</p>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="pill pill-peach submit">send</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Футер (Flexbox) -->
+    <footer id="contact" class="footer">
+        <ul class="footer-links">
+            <li><a href="#">social media</a></li>
+            <li><a href="box.html">order</a></li>
+            <li><a href="invitation.html">invitation</a></li>
+            <li><a href="reviews.html#feedback">contact</a></li>
+        </ul>
+        <p>&copy; 2026 Bakery Blair</p>
+    </footer>
+
+    <a href="#top" class="to-top" aria-label="Back to top"><span class="chevron"></span></a>
+
+    <!-- Подяка після надсилання відгуку -->
+    <div id="thanks" class="auth-modal" role="dialog" aria-labelledby="thanks-title">
+        <a href="#" class="auth-backdrop" aria-label="Close"></a>
+        <div class="auth-card">
+            <a href="#" class="auth-close" aria-label="Close">&#10005;</a>
+            <h2 id="thanks-title">Thank you!</h2>
+            <p class="auth-note">Your message has been sent. We will answer soon.</p>
+            <a href="#" class="pill pill-peach">continue</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Модальне вікно входу (відкривається через :target) -->
+    <div id="signin" class="auth-modal" role="dialog" aria-labelledby="signin-title">
+        <a href="#" class="auth-backdrop" aria-label="Close"></a>
+        <form class="auth-card" action="#welcome" method="get">
+            <a href="#" class="auth-close" aria-label="Close">&#10005;</a>
+            <h2 id="signin-title">Sign in</h2>
+            <div class="field">
+                <label for="si-email">Email</label>
+                <input type="email" id="si-email" placeholder=" " required autocomplete="email">
+                <span class="ok-mark">&#10003;</span>
+                <p class="hint">Enter an email like name@example.com</p>
+            </div>
+            <div class="field">
+                <label for="si-pass">Password</label>
+                <input type="password" id="si-pass" placeholder=" " required minlength="8" pattern="(?=.*\d)(?=.*[A-Za-z]).{8,}" autocomplete="current-password">
+                <span class="ok-mark">&#10003;</span>
+                <p class="hint">At least 8 characters, with letters and a number</p>
+            </div>
+            <label class="check"><input type="checkbox"> Remember me</label>
+            <button type="submit" class="pill pill-peach submit">Sign in</button>
+            <p class="auth-switch">No account yet? <a href="#signup">Create one</a></p>
+        </form>
+    </div>
+
+    <!-- Модальне вікно реєстрації -->
+    <div id="signup" class="auth-modal" role="dialog" aria-labelledby="signup-title">
+        <a href="#" class="auth-backdrop" aria-label="Close"></a>
+        <form class="auth-card" action="#welcome" method="get">
+            <a href="#" class="auth-close" aria-label="Close">&#10005;</a>
+            <h2 id="signup-title">Create account</h2>
+            <div class="field">
+                <label for="su-name">Name</label>
+                <input type="text" id="su-name" placeholder=" " required pattern="[A-Za-zА-ЯҐЄІЇа-яґєії' \-]{2,40}" autocomplete="name">
+                <span class="ok-mark">&#10003;</span>
+                <p class="hint">Only letters, 2 to 40 characters</p>
+            </div>
+            <div class="field">
+                <label for="su-email">Email</label>
+                <input type="email" id="su-email" placeholder=" " required autocomplete="email">
+                <span class="ok-mark">&#10003;</span>
+                <p class="hint">Enter an email like name@example.com</p>
+            </div>
+            <div class="field">
+                <label for="su-phone">Phone</label>
+                <input type="tel" id="su-phone" placeholder=" " required pattern="\+?[0-9]{10,12}" autocomplete="tel">
+                <span class="ok-mark">&#10003;</span>
+                <p class="hint">10–12 digits, for example +380501234567</p>
+            </div>
+            <div class="field">
+                <label for="su-pass">Password</label>
+                <input type="password" id="su-pass" placeholder=" " required minlength="8" pattern="(?=.*\d)(?=.*[A-Za-z]).{8,}" autocomplete="new-password">
+                <span class="ok-mark">&#10003;</span>
+                <p class="hint">At least 8 characters, with letters and a number</p>
+            </div>
+            <label class="check"><input type="checkbox" required> I agree to the terms of use</label>
+            <button type="submit" class="pill pill-peach submit">Create account</button>
+            <p class="auth-switch">Already have an account? <a href="#signin">Sign in</a></p>
+        </form>
+    </div>
+
+    <!-- Після надсилання форми -->
+    <div id="welcome" class="auth-modal" role="dialog" aria-labelledby="welcome-title">
+        <a href="#" class="auth-backdrop" aria-label="Close"></a>
+        <div class="auth-card">
+            <a href="#" class="auth-close" aria-label="Close">&#10005;</a>
+            <h2 id="welcome-title">Welcome!</h2>
+            <p class="auth-note">The form is filled in correctly. This is a demo site without a server, so your data is not sent anywhere.</p>
+            <a href="#" class="pill pill-peach">continue</a>
+        </div>
+    </div>
+
+</body>
+</html>

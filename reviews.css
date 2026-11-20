@@ -1,0 +1,75 @@
+/* ===== Сторінка відгуків (Bootstrap + власні кольори) ===== */
+.reviews-page { position: relative; }
+
+/* картка відгуку в каруселі */
+.review-card {
+    max-width: 640px;
+    border: 1px solid var(--ink);
+    border-radius: 28px;
+    background: var(--lavender);
+    margin-bottom: 56px;
+}
+.review-card .card-body { padding: 36px 48px 40px; }
+.review-img {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 10px;
+    object-fit: contain;
+}
+.review-img.crop-middle { object-fit: cover; }
+.stars { color: var(--pink-heart); font-size: 24px; letter-spacing: 4px; margin-bottom: 10px; }
+.review-card blockquote {
+    font-family: var(--text);
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 14px;
+}
+.review-author { margin: 0; font-size: 18px; font-style: italic; }
+
+/* індикатори та стрілки каруселі в стилі сайту */
+#reviewsCarousel .carousel-indicators { margin-bottom: 8px; }
+#reviewsCarousel .carousel-indicators [data-bs-target] {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid var(--ink);
+    background-color: var(--pink);
+    opacity: .6;
+}
+#reviewsCarousel .carousel-indicators .active { opacity: 1; background-color: var(--pink-heart); }
+#reviewsCarousel .carousel-control-prev-icon,
+#reviewsCarousel .carousel-control-next-icon { filter: invert(1); }
+
+/* зворотний зв'язок */
+.feedback { background: var(--peach); border-top: 1px solid var(--ink); }
+.feedback-title { font-size: clamp(32px, 4vw, 44px); text-align: left; }
+.feedback-text { font-family: var(--text); font-size: 17px; text-align: left; }
+.feedback-info { text-align: left; font-size: 18px; line-height: 2; }
+.feedback-info li { color: var(--ink); }
+.feedback-form {
+    padding: 28px;
+    border: 1px solid var(--ink);
+    border-radius: 24px;
+    background: var(--lavender);
+    text-align: left;
+}
+.feedback-form .field { margin-bottom: 0; }
+.feedback-form .ok-mark { right: 26px; }
+.feedback-form .form-select {
+    border: 1.5px solid #bdbdbd;
+    border-radius: 12px;
+    font-family: var(--text);
+}
+.feedback-form .pill { padding: 8px 60px; }
+
+@media (max-width: 991px) {
+    .feedback-title, .feedback-text, .feedback-info { text-align: center; }
+}
+@media (max-width: 640px) {
+    #reviewsCarousel .carousel-inner { padding: 0 34px; }
+    #reviewsCarousel .carousel-control-prev,
+    #reviewsCarousel .carousel-control-next { width: 34px; }
+    .review-card .card-body { padding: 28px 22px 32px; }
+    .review-card blockquote { font-size: 16px; }
+    .feedback-form { padding: 20px 16px; }
+}

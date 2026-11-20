@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitation – Bakery Blair</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Ponnala&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="invitation.css">
+</head>
+<body>
+
+    <!-- Навігація (Flexbox) -->
+    <header id="top" class="site-header">
+        <nav class="main-nav">
+            <!-- Адаптивне меню: чекбокс відкриває список на малих екранах -->
+            <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Open menu">
+            <label for="menu-toggle" class="burger"><span class="burger-open">&#9776;</span><span class="burger-close">&#10005;</span></label>
+            <a href="index.html" class="logo-mobile">Bakery Blair</a>
+
+            <ul class="nav-list">
+                <li><a href="index.html">home</a></li>
+                <li class="has-submenu">
+                    <a href="discover.html">shop <span class="arrow">&#9662;</span></a>
+                    <ul class="submenu">
+                        <li><a href="discover.html#cheese">Yellow Cheese</a></li>
+                        <li><a href="discover.html#tiramisu">Tiramisu</a></li>
+                        <li><a href="discover.html#corn">Sweet Corn</a></li>
+                    </ul>
+                </li>
+                <li class="logo"><a href="index.html">Bakery<br>Blair</a></li>
+                <li><a href="reviews.html">reviews</a></li>
+                <li><a href="reviews.html#feedback">contact</a></li>
+            </ul>
+
+            <form class="search" role="search" onsubmit="return false;">
+                <input type="search" placeholder="Search..." aria-label="Search">
+                <button type="submit" class="search-btn" aria-label="Search">
+                    <span class="search-icon"></span>
+                </button>
+            </form>
+
+            <a href="#signin" class="signin">Sign in</a>
+        </nav>
+    </header>
+
+    <main class="invite-page">
+        <div class="page-head">
+            <a href="index.html" class="back" aria-label="Back to home"></a>
+            <h1 class="page-title">Invitation</h1>
+        </div>
+
+        <div class="print-bar">
+            <!-- кнопка друку -->
+            <button type="button" class="pill pill-peach" onclick="window.print()">&#128424; print</button>
+        </div>
+
+        <div class="invite-sheet">
+            <!-- Конверт -->
+            <section class="envelope" aria-label="Envelope">
+                <div class="envelope-flap"></div>
+                <div class="envelope-seal"><span class="heart" aria-hidden="true"></span></div>
+                <div class="envelope-stamp">
+                    <img src="aa8ec759-db70-4f8d-b5c4-2cbbed3b908b.png" alt="">
+                </div>
+                <div class="envelope-from">
+                    <strong>Bakery Blair</strong><br>
+                    New York Rolls &amp; boxes
+                </div>
+                <div class="envelope-to">
+                    <span>To:</span>
+                    <p class="line">our dear guest</p>
+                    <p class="line"></p>
+                    <p class="line"></p>
+                </div>
+            </section>
+
+            <!-- Запрошення -->
+            <article class="invite-card">
+                <img src="drip.webp" alt="" class="invite-drip">
+                <p class="invite-kicker">You are invited to</p>
+                <h2 class="invite-title">New York Roll<br>Tasting Party</h2>
+                <div class="invite-rolls">
+                    <img src="85fc03af-7cc6-4b5b-998e-485e3d695f2f.png" alt="Yellow Cheese roll">
+                    <img src="5794ade5-6e26-4a5f-9269-1ab10de974f1.png" alt="Tiramisu roll" class="crop-middle">
+                    <img src="aa8ec759-db70-4f8d-b5c4-2cbbed3b908b.png" alt="Sweet Corn roll">
+                </div>
+                <p class="invite-text">Taste all our flavours, build your own box and meet the bakers behind the rolls. Coffee and music included.</p>
+                <dl class="invite-details">
+                    <div><dt>When</dt><dd>Saturday, 12 December 2026, 4 pm</dd></div>
+                    <div><dt>Where</dt><dd>Bakery Blair</dd></div>
+                    <div><dt>Dress code</dt><dd>Something pink</dd></div>
+                </dl>
+                <p class="invite-rsvp">Please reply by 5 December</p>
+            </article>
+        </div>
+    </main>
+
+    <!-- Футер (Flexbox) -->
+    <footer id="contact" class="footer">
+        <ul class="footer-links">
+            <li><a href="#">social media</a></li>
+            <li><a href="box.html">order</a></li>
+            <li><a href="invitation.html">invitation</a></li>
+            <li><a href="reviews.html#feedback">contact</a></li>
+        </ul>
+        <p>&copy; 2026 Bakery Blair</p>
+    </footer>
+
+    <a href="#top" class="to-top" aria-label="Back to top"><span class="chevron"></span></a>
+    <!-- Модальне вікно входу (відкривається через :target) -->
+    <div id="signin" class="auth-modal" role="dialog" aria-labelledby="signin-title">
+        <a href="#" class="auth-backdrop" aria-label="Close"></a>
+        <form class="auth-card" action="#welcome" method="get">
+            <a href="#" class="auth-close" aria-label="Close">&#10005;</a>
+            <h2 id="signin-title">Sign in</h2>
+            <div class="field">
+                <label for="si-email">Email</label>
+                <input type="email" id="si-email" placeholder=" " required autocomplete="email">
+                <span class="ok-mark">&#10003;</span>
+                <p class="hint">Enter an email like name@example.com</p>
+            </div>
+            <div class="field">
+                <label for="si-pass">Password</label>
+                <input type="password" id="si-pass" placeholder=" " required minlength="8" pattern="(?=.*\d)(?=.*[A-Za-z]).{8,}" autocomplete="current-password">
+                <span class="ok-mark">&#10003;</span>
+                <p class="hint">At least 8 characters, with letters and a number</p>
+            </div>
+            <label class="check"><input type="checkbox"> Remember me</label>
+            <button type="submit" class="pill pill-peach submit">Sign in</button>
+            <p class="auth-switch">No account yet? <a href="#signup">Create one</a></p>
+        </form>
+    </div>
+
+    <!-- Модальне вікно реєстрації -->
+    <div id="signup" class="auth-modal" role="dialog" aria-labelledby="signup-title">
+        <a href="#" class="auth-backdrop" aria-label="Close"></a>
+        <form class="auth-card" action="#welcome" method="get">
+            <a href="#" class="auth-close" aria-label="Close">&#10005;</a>
+            <h2 id="signup-title">Create account</h2>
+            <div class="field">
+                <label for="su-name">Name</label>
+                <input type="text" id="su-name" placeholder=" " required pattern="[A-Za-zА-ЯҐЄІЇа-яґєії' \-]{2,40}" autocomplete="name">
+                <span class="ok-mark">&#10003;</span>
+                <p class="hint">Only letters, 2 to 40 characters</p>
+            </div>
+            <div class="field">
+                <label for="su-email">Email</label>
+                <input type="email" id="su-email" placeholder=" " required autocomplete="email">
+                <span class="ok-mark">&#10003;</span>
+                <p class="hint">Enter an email like name@example.com</p>
+            </div>
+            <div class="field">
+                <label for="su-phone">Phone</label>
+                <input type="tel" id="su-phone" placeholder=" " required pattern="\+?[0-9]{10,12}" autocomplete="tel">
+                <span class="ok-mark">&#10003;</span>
+                <p class="hint">10–12 digits, for example +380501234567</p>
+            </div>
+            <div class="field">
+                <label for="su-pass">Password</label>
+                <input type="password" id="su-pass" placeholder=" " required minlength="8" pattern="(?=.*\d)(?=.*[A-Za-z]).{8,}" autocomplete="new-password">
+                <span class="ok-mark">&#10003;</span>
+                <p class="hint">At least 8 characters, with letters and a number</p>
+            </div>
+            <label class="check"><input type="checkbox" required> I agree to the terms of use</label>
+            <button type="submit" class="pill pill-peach submit">Create account</button>
+            <p class="auth-switch">Already have an account? <a href="#signin">Sign in</a></p>
+        </form>
+    </div>
+
+    <!-- Після надсилання форми -->
+    <div id="welcome" class="auth-modal" role="dialog" aria-labelledby="welcome-title">
+        <a href="#" class="auth-backdrop" aria-label="Close"></a>
+        <div class="auth-card">
+            <a href="#" class="auth-close" aria-label="Close">&#10005;</a>
+            <h2 id="welcome-title">Welcome!</h2>
+            <p class="auth-note">The form is filled in correctly. This is a demo site without a server, so your data is not sent anywhere.</p>
+            <a href="#" class="pill pill-peach">continue</a>
+        </div>
+    </div>
+
+</body>
+</html>
