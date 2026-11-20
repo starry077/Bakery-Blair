@@ -51,51 +51,101 @@
             <a href="index.html" class="back" aria-label="Back to home"></a>
         </div>
 
-        <!-- Кроки (Grid) -->
-        <section class="steps">
+        <!-- Конструктор боксу: кроки (Grid) -->
+        <form id="box-form" class="steps" novalidate>
             <div class="step step-1">
                 <div class="num"><span>1.</span></div>
-                <div class="step-text">
-                    <h2>Choose your Box</h2>
-                    <ul>
-                        <li>Cardboard box</li>
-                        <li>Metal box</li>
-                        <li>Duo box</li>
-                    </ul>
-                </div>
+                <fieldset class="step-text">
+                    <legend><h2>Choose your Box</h2></legend>
+                    <div class="choices">
+                        <label class="choice">
+                            <input type="radio" name="box" value="Cardboard box" data-capacity="4" data-price="0" required>
+                            <span><b>Cardboard box</b><small>4 rolls · free</small></span>
+                        </label>
+                        <label class="choice">
+                            <input type="radio" name="box" value="Metal box" data-capacity="6" data-price="6">
+                            <span><b>Metal box</b><small>6 rolls · +6.00€</small></span>
+                        </label>
+                        <label class="choice">
+                            <input type="radio" name="box" value="Duo box" data-capacity="2" data-price="1.5">
+                            <span><b>Duo box</b><small>2 rolls · +1.50€</small></span>
+                        </label>
+                    </div>
+                </fieldset>
                 <img src="e7804679-40c4-4277-b8c3-f092df86e21d.png" alt="Box">
             </div>
 
             <div class="step step-2">
                 <div class="num"><span>2.</span></div>
-                <div class="step-text">
-                    <h2>Choose your flavours</h2>
-                    <ul>
-                        <li>Chocolate</li>
-                        <li>Vanilla</li>
-                        <li>Blueberry</li>
-                        <li>Strawberry</li>
-                        <li>Pistachio</li>
-                        <li>Almond</li>
-                        <li>Tiramisu</li>
+                <fieldset class="step-text">
+                    <legend><h2>Choose your flavours</h2></legend>
+                    <p class="step-note">Each roll 4.50€</p>
+                    <ul class="flavour-picker">
+                        <li data-flavour="Chocolate"><span class="dot" style="--c: #6b3f2a"></span>Chocolate<span class="stepper"><button type="button" class="minus" aria-label="Remove Chocolate">&minus;</button><output>0</output><button type="button" class="plus" aria-label="Add Chocolate">+</button></span></li>
+                        <li data-flavour="Vanilla"><span class="dot" style="--c: #f4e3b5"></span>Vanilla<span class="stepper"><button type="button" class="minus" aria-label="Remove Vanilla">&minus;</button><output>0</output><button type="button" class="plus" aria-label="Add Vanilla">+</button></span></li>
+                        <li data-flavour="Blueberry"><span class="dot" style="--c: #6c63b5"></span>Blueberry<span class="stepper"><button type="button" class="minus" aria-label="Remove Blueberry">&minus;</button><output>0</output><button type="button" class="plus" aria-label="Add Blueberry">+</button></span></li>
+                        <li data-flavour="Strawberry"><span class="dot" style="--c: #f0707e"></span>Strawberry<span class="stepper"><button type="button" class="minus" aria-label="Remove Strawberry">&minus;</button><output>0</output><button type="button" class="plus" aria-label="Add Strawberry">+</button></span></li>
+                        <li data-flavour="Pistachio"><span class="dot" style="--c: #9fc46a"></span>Pistachio<span class="stepper"><button type="button" class="minus" aria-label="Remove Pistachio">&minus;</button><output>0</output><button type="button" class="plus" aria-label="Add Pistachio">+</button></span></li>
+                        <li data-flavour="Almond"><span class="dot" style="--c: #e2c49a"></span>Almond<span class="stepper"><button type="button" class="minus" aria-label="Remove Almond">&minus;</button><output>0</output><button type="button" class="plus" aria-label="Add Almond">+</button></span></li>
+                        <li data-flavour="Tiramisu"><span class="dot" style="--c: #9a6b4f"></span>Tiramisu<span class="stepper"><button type="button" class="minus" aria-label="Remove Tiramisu">&minus;</button><output>0</output><button type="button" class="plus" aria-label="Add Tiramisu">+</button></span></li>
                     </ul>
-                </div>
+                    <p class="box-status" id="box-status" aria-live="polite">Choose a box first</p>
+                </fieldset>
                 <img src="45bf1ae4-9ddc-4283-a827-c1b642840db7.png" alt="Flavours">
             </div>
 
             <div class="step step-3">
                 <div class="num"><span>3.</span></div>
-                <div class="step-text">
-                    <h2>Enjoy</h2>
-                    <ul>
-                        <li>Pick up in store</li>
-                        <li>Home delivery or delivery service</li>
-                    </ul>
-                </div>
+                <fieldset class="step-text">
+                    <legend><h2>Enjoy</h2></legend>
+                    <div class="choices">
+                        <label class="choice">
+                            <input type="radio" name="delivery" value="Pick up in store" data-price="0" required>
+                            <span><b>Pick up in store</b><small>free</small></span>
+                        </label>
+                        <label class="choice">
+                            <input type="radio" name="delivery" value="Home delivery" data-price="3" id="d-home">
+                            <span><b>Home delivery</b><small>+3.00€</small></span>
+                        </label>
+                    </div>
+                    <div class="field">
+                        <label for="box-date">Date</label>
+                        <input type="date" id="box-date" name="date" required>
+                    </div>
+                    <div class="field delivery-address">
+                        <label for="box-address">Delivery address</label>
+                        <input type="text" id="box-address" name="address" placeholder=" " minlength="5">
+                        <p class="hint">Write the street and house number</p>
+                    </div>
+                </fieldset>
                 <img src="a36f5605-45e7-48e3-b005-fba3c2e8766e.jpg" alt="Store">
             </div>
-        </section>
+
+            <!-- Підсумок замовлення -->
+            <section class="box-summary" aria-labelledby="summary-title">
+                <h2 id="summary-title">Your Box</h2>
+                <dl>
+                    <div><dt>Box</dt><dd id="sum-box">—</dd></div>
+                    <div><dt>Flavours</dt><dd id="sum-flavours">—</dd></div>
+                    <div><dt>Delivery</dt><dd id="sum-delivery">—</dd></div>
+                    <div class="sum-total"><dt>Total</dt><dd id="sum-total">0.00€</dd></div>
+                </dl>
+                <p class="summary-hint" id="summary-hint">Choose a box, fill it with rolls and pick delivery</p>
+                <button type="submit" class="pill pill-peach" id="create-btn" disabled>Create Box</button>
+            </section>
+        </form>
     </main>
+
+    <!-- Підтвердження замовлення -->
+    <div id="box-done" class="auth-modal" role="dialog" aria-labelledby="done-title">
+        <a href="#" class="auth-backdrop" aria-label="Close"></a>
+        <div class="auth-card">
+            <a href="#" class="auth-close" aria-label="Close">&#10005;</a>
+            <h2 id="done-title">Your box is ready!</h2>
+            <p class="auth-note" id="done-text"></p>
+            <a href="box.html" class="pill pill-peach">create another box</a>
+        </div>
+    </div>
 
     <!-- Футер (Flexbox) -->
     <footer id="contact" class="footer">
@@ -182,5 +232,6 @@
         </div>
     </div>
 
+    <script src="box.js"></script>
 </body>
 </html>

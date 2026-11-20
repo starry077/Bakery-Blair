@@ -132,6 +132,7 @@ $dots: (
 // --- Текст кроку ---
 .step-text {
     grid-area: text;
+    min-width: 0;
 
     h2 { font-size: 40px; }
 
@@ -147,4 +148,193 @@ $dots: (
             padding: 0;
         }
     }
+}
+
+// ===== Конструктор боксу =====
+$peach: #f7e3d6;
+$accent: #b0697a;
+$ok: #5a9e6a;
+
+@mixin chip {
+    border: 1.5px solid $ink;
+    border-radius: 999px;
+    background: #fff;
+    transition: background-color .25s, transform .25s, box-shadow .25s;
+}
+
+fieldset.step-text {
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+    legend { padding: 0; float: left; width: 100%; }
+    legend + * { clear: both; }
+}
+
+.step-note {
+    margin: 0 0 8px;
+    font-family: $text-font;
+    font-size: 15px;
+}
+
+// --- Вибір коробки та доставки (радіокнопки-"пігулки") ---
+.choices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 14px;
+
+    @include respond($tablet) { justify-content: center; }
+}
+
+.choice {
+    position: relative;
+    cursor: pointer;
+
+    input {
+        position: absolute;
+        opacity: 0;
+    }
+
+    span {
+        @include chip;
+        display: flex;
+        flex-direction: column;
+        padding: 8px 20px;
+        text-align: center;
+        line-height: 1.3;
+    }
+
+    b { font-weight: 400; font-size: 18px; }
+    small { font-family: $text-font; font-size: 13px; }
+
+    &:hover span { transform: translateY(-2px); }
+
+    input:checked + span {
+        background: $pink;
+        box-shadow: 0 0 0 3px $lavender, 0 0 0 4.5px $ink;
+    }
+
+    input:focus-visible + span { outline: 2px solid $accent; outline-offset: 4px; }
+}
+
+// --- Смаки з кнопками + / − ---
+.flavour-picker {
+    list-style: none !important;
+    padding: 0 !important;
+    max-width: 360px;
+
+    @include respond($tablet) { margin: 0 auto !important; }
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 3px 8px;
+        border-radius: 12px;
+        text-align: left;
+        transition: background-color .25s;
+
+        &.picked { background: $lavender; }
+    }
+}
+
+.dot {
+    @include circle(14px, var(--c));
+    flex-shrink: 0;
+    border: 1px solid rgba(0, 0, 0, .2);
+}
+
+.stepper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: auto;
+
+    button {
+        @include chip;
+        @include circle(28px, #fff);
+        border: 1.5px solid $ink;
+        display: grid;
+        place-items: center;
+        padding: 0;
+        font: 18px/1 serif;
+        cursor: pointer;
+
+        &:hover:not(:disabled) { background: $pink; }
+        &:disabled { opacity: .3; cursor: default; }
+    }
+
+    output { min-width: 18px; text-align: center; font-size: 17px; }
+}
+
+.box-status {
+    margin: 10px 0 0;
+    font-size: 16px;
+    color: $accent;
+
+    &.full { color: $ok; }
+}
+
+// --- Поля дати й адреси ---
+.step-3 .field {
+    max-width: 320px;
+
+    @include respond($tablet) { margin: 0 auto 18px; text-align: left; }
+}
+
+.delivery-address { display: none; }
+.with-address .delivery-address { display: block; animation: fade-up .3s ease both; }
+
+// --- Підсумок замовлення ---
+.box-summary {
+    max-width: 640px;
+    margin: 10px auto 0;
+    padding: 32px 36px 36px;
+    border: 1px solid $ink;
+    border-radius: 28px;
+    background: $peach;
+
+    h2 { font-size: 40px; }
+
+    dl { margin: 0 0 14px; text-align: left; }
+
+    dl div {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 8px 0;
+        border-bottom: 1px dashed $ink;
+    }
+
+    dd {
+        margin: 0;
+        font-family: $text-font;
+        text-align: right;
+    }
+
+    .sum-total {
+        border-bottom: 0;
+        font-size: 24px;
+
+        dd { font-family: inherit; }
+    }
+
+    .pill:disabled {
+        opacity: .45;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    @include respond($phone) {
+        padding: 24px 18px 28px;
+
+        dl div { flex-direction: column; gap: 2px; }
+        dd { text-align: left; }
+    }
+}
+
+.summary-hint {
+    font-family: $text-font;
+    font-size: 15px;
 }

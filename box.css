@@ -118,6 +118,7 @@
 
 .step-text {
   grid-area: text;
+  min-width: 0;
 }
 
 .step-text h2 {
@@ -137,4 +138,254 @@
     list-style: none;
     padding: 0;
   }
+}
+
+fieldset.step-text {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+fieldset.step-text legend {
+  padding: 0;
+  float: left;
+  width: 100%;
+}
+
+fieldset.step-text legend + * {
+  clear: both;
+}
+
+.step-note {
+  margin: 0 0 8px;
+  font-family: "Ponnala", Arial, sans-serif;
+  font-size: 15px;
+}
+
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+@media (max-width: 960px) {
+  .choices {
+    justify-content: center;
+  }
+}
+
+.choice {
+  position: relative;
+  cursor: pointer;
+}
+
+.choice input {
+  position: absolute;
+  opacity: 0;
+}
+
+.choice span {
+  border: 1.5px solid #1d1d1d;
+  border-radius: 999px;
+  background: #fff;
+  transition: background-color .25s, transform .25s, box-shadow .25s;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 20px;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.choice b {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.choice small {
+  font-family: "Ponnala", Arial, sans-serif;
+  font-size: 13px;
+}
+
+.choice:hover span {
+  transform: translateY(-2px);
+}
+
+.choice input:checked + span {
+  background: #f2cfd6;
+  box-shadow: 0 0 0 3px #eeeefd, 0 0 0 4.5px #1d1d1d;
+}
+
+.choice input:focus-visible + span {
+  outline: 2px solid #b0697a;
+  outline-offset: 4px;
+}
+
+.flavour-picker {
+  list-style: none !important;
+  padding: 0 !important;
+  max-width: 360px;
+}
+
+@media (max-width: 960px) {
+  .flavour-picker {
+    margin: 0 auto !important;
+  }
+}
+
+.flavour-picker li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 8px;
+  border-radius: 12px;
+  text-align: left;
+  transition: background-color .25s;
+}
+
+.flavour-picker li.picked {
+  background: #eeeefd;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--c);
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.stepper button {
+  border: 1.5px solid #1d1d1d;
+  border-radius: 999px;
+  background: #fff;
+  transition: background-color .25s, transform .25s, box-shadow .25s;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid #1d1d1d;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  font: 18px/1 serif;
+  cursor: pointer;
+}
+
+.stepper button:hover:not(:disabled) {
+  background: #f2cfd6;
+}
+
+.stepper button:disabled {
+  opacity: .3;
+  cursor: default;
+}
+
+.stepper output {
+  min-width: 18px;
+  text-align: center;
+  font-size: 17px;
+}
+
+.box-status {
+  margin: 10px 0 0;
+  font-size: 16px;
+  color: #b0697a;
+}
+
+.box-status.full {
+  color: #5a9e6a;
+}
+
+.step-3 .field {
+  max-width: 320px;
+}
+
+@media (max-width: 960px) {
+  .step-3 .field {
+    margin: 0 auto 18px;
+    text-align: left;
+  }
+}
+
+.delivery-address {
+  display: none;
+}
+
+.with-address .delivery-address {
+  display: block;
+  animation: fade-up .3s ease both;
+}
+
+.box-summary {
+  max-width: 640px;
+  margin: 10px auto 0;
+  padding: 32px 36px 36px;
+  border: 1px solid #1d1d1d;
+  border-radius: 28px;
+  background: #f7e3d6;
+}
+
+.box-summary h2 {
+  font-size: 40px;
+}
+
+.box-summary dl {
+  margin: 0 0 14px;
+  text-align: left;
+}
+
+.box-summary dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 8px 0;
+  border-bottom: 1px dashed #1d1d1d;
+}
+
+.box-summary dd {
+  margin: 0;
+  font-family: "Ponnala", Arial, sans-serif;
+  text-align: right;
+}
+
+.box-summary .sum-total {
+  border-bottom: 0;
+  font-size: 24px;
+}
+
+.box-summary .sum-total dd {
+  font-family: inherit;
+}
+
+.box-summary .pill:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media (max-width: 640px) {
+  .box-summary {
+    padding: 24px 18px 28px;
+  }
+  .box-summary dl div {
+    flex-direction: column;
+    gap: 2px;
+  }
+  .box-summary dd {
+    text-align: left;
+  }
+}
+
+.summary-hint {
+  font-family: "Ponnala", Arial, sans-serif;
+  font-size: 15px;
 }
